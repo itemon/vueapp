@@ -7,6 +7,10 @@
         <div>sessions: {{ sessions }}</div>
         <button @click="incr">increment sessions</button>
       </div>
+      <div class="sec">
+        <div>sessions: {{ globalGreeting || 'No global greeting' }}</div>
+        <button @click="viewGreeting">View Remote Greeting</button>
+      </div>
     </div>
   </div>
 </template>
@@ -29,13 +33,18 @@ export default {
     }
   },
   computed: {
-    ...mapState(['sessions'])
+    ...mapState(['sessions', 'globalGreeting'])
   },
   methods: {
     incr () {
       // eslint-disable-next-line
       console.log('before incrementing')
       this.$store.commit('incrSessions')
+    },
+    viewGreeting () {
+      // eslint-disable-next-line
+      console.log('before view remote greeting')
+      this.$store.dispatch('VIEW_REMOTE_GREETING')
     }
   }
 }

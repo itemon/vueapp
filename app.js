@@ -38,6 +38,10 @@ app.use(ctx => {
   ctx.body = 'hello'
 })
 
-app.listen('8080', () => {
-  console.log('app is starting up watching at port 8080')
+app.listen('8081', () => {
+  console.log(`
+    ----------------------------------------\n
+    pls visit: http://localhost:8081\n
+    ----------------------------------------\n
+  `)
 })
